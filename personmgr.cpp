@@ -5,13 +5,13 @@
 #include "personmgr.h"
 
 void PersonMgr::addPerson(Person person) {
-    personnelTable.insert(person.getId(), person);
+    table.insert(person.getId(), person);
 };
 
 void PersonMgr::removePerson(char* id) {
-    personnelTable.remove(id);
+    table.remove(id);
 };
 
 Person* PersonMgr::findPerson(char* id){
-    personnelTable.lookup(id);
+    table.lookup(id);
 };

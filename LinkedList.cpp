@@ -10,6 +10,8 @@
 //output: none
 //return: none
 LinkedList::LinkedList() {
+    head = nullptr;
+    size = 0;
 }
 
 //Name:   ~LinkedList()
@@ -60,12 +62,17 @@ void LinkedList::insertFront(Person person) {
     size++;
 }
 
-void LinkedList::removeById(const char* personId) {
+void LinkedList::removeById(const char* id) {
     Node *curr = head, *prev = nullptr;
 
     while(curr) {
-        if (personId == curr->data.getId()) {
-
+        if (strcmp(id, curr->data.getId()) == 0) {
+            if (prev == nullptr) {
+                head = nullptr;
+            } else {
+                prev->next = nullptr;
+            }
+            break;
         }
         prev = curr;
         curr = curr->next;
@@ -78,7 +85,7 @@ Person* LinkedList::searchById(const char* id) const {
     Person* person = nullptr;
 
     while(curr) {
-        if (id == curr->data.getId()) {
+        if (strcmp(id, curr->data.getId()) == 0) {
             person = &curr->data;
             break;
         }
@@ -89,5 +96,10 @@ Person* LinkedList::searchById(const char* id) const {
 }
 
 void LinkedList::printList() const {
+    Node *curr = head;
 
+    while(curr) {
+        curr->data.print();
+        curr = curr->next;
+    }
 }

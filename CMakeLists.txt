@@ -3,4 +3,4 @@ project(personnel)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(personnel personnel.cpp personmgr.cpp personmgr.h person.cpp person.h HashTable.cpp HashTable.h LinkedList.cpp LinkedList.h)
+add_executable(personnel testlinkedlist.cpp personmgr.cpp personmgr.h person.cpp person.h HashTable.cpp HashTable.h LinkedList.cpp LinkedList.h)

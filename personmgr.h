@@ -10,7 +10,7 @@
 
 class PersonMgr {
 private:
-    HashTable personnelTable;
+    HashTable table;
 
 public:
     void addPerson(Person);
