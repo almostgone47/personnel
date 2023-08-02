@@ -11,17 +11,22 @@
 
 #include "person.h"
 
+struct Node {
+    Person data;
+    Node *next = nullptr;
+};
+
 class LinkedList {
 private:
-    struct Node {
-        Person data;
-        Node *next = nullptr;
-    };
     Node *head = nullptr;
     int size = 0;
 
 public:
-    //TODO: (and constructors, destructors, assignment, operators,
+    LinkedList();
+    ~LinkedList();
+    LinkedList(const LinkedList &list);
+    const LinkedList & operator= (const LinkedList &list);
+
     void insertFront(Person);
     void removeById(const char*);
     Person* searchById(const char*) const;
