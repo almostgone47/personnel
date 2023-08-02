@@ -23,7 +23,10 @@ public:
     ~Person();
     // still need copy constructor and operator=
 
-
+    char* getId();
+    char* getFname();
+    char* getLname();
+    char* getFamilyId();
     void print() const;
 };
 #endif //PERSONNEL_PERSON_H

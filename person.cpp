@@ -19,6 +19,22 @@ Person::~Person() {
 
 }
 
+char* getId() {
+
+}
+
+char* getFname() {
+
+}
+
+char* getLname() {
+
+}
+
+char* getFamilyId() {
+
+}
+
 void Person::print() const {
     cout << id << ", " << fname << ", " << lname << ", " << familyId << endl;
 }
