@@ -20,7 +20,7 @@ private:
 public:
     Person();
     Person(const char* id, const char* fname, const char* lname, const char* familyId);
-    ~Person();
+//    ~Person();
     // still need copy constructor and operator=
 
     char* getId();

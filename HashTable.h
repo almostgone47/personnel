@@ -12,14 +12,16 @@
 
 class HashTable {
 private:
-    int tableSize = 9973;
-    LinkedList *list;
+    int tableSize;
+    LinkedList *arr;
     int length = 0;
     unsigned int hashFunction(const char*);
 public:
     HashTable();
     HashTable(int);
     ~HashTable();
+    HashTable(const HashTable& other);
+    const HashTable& operator=(const HashTable& table);
     // TODO: need to finish destructor, copy and assignment operator
 
     bool isEmpty();

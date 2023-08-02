@@ -12,6 +12,7 @@ void PersonMgr::removePerson(char* id) {
     table.remove(id);
 };
 
-Person* PersonMgr::findPerson(char* id){
-    table.lookup(id);
+const Person* PersonMgr::findPerson(char* id) {
+    const Person *person = table.lookup(id);
+    return person;
 };

@@ -5,16 +5,47 @@
 #include "HashTable.h"
 
 HashTable::HashTable() {
-    LinkedList *list[tableSize];
+    tableSize = 9973;
+    arr = new LinkedList[tableSize];
+    for (int i = 0; i < tableSize; i++) {
+        arr[i] = LinkedList();
+    }
 }
 
 HashTable::HashTable(int hashTableSize) {
     tableSize = hashTableSize;
-    LinkedList *list[tableSize];
+    arr = new LinkedList[tableSize];
+    for (int i = 0; i < tableSize; i++) {
+        arr[i] = LinkedList();
+    }
+}
+
+HashTable::HashTable(const HashTable& table) {
+    tableSize = table.tableSize;
+    arr = new LinkedList[tableSize];
+    for (int i = 0; i < tableSize; i++) {
+        arr[i] = table.arr[i];
+    }
+    length = table.length;
+}
+
+const HashTable& HashTable::operator=(const HashTable& table) {
+    if (this == &table) {
+        return *this;
+    }
+    delete[] arr;
+    tableSize = table.tableSize;
+    arr = new LinkedList[tableSize];
+    for (int i = 0; i < tableSize; i++) {
+        arr[i] = table.arr[i];
+    }
+
+    length = table.length;
+    return *this;
 }
 
 HashTable::~HashTable() {
-
+    delete [] arr;
 }
 
 bool HashTable::isEmpty() {
@@ -22,35 +53,34 @@ bool HashTable::isEmpty() {
 }
 
 void HashTable::insert(char *id, Person person) {
-//    1) use the hash function on the ID to get the index in the array
     unsigned int index = hashFunction(id);
-//    2) call the "add" method on the linked list object at that location in the
-//    array
-    list[index].insertFront(person);
+    arr[index].insertFront(person);
+    length++;
 }
 
 void HashTable::remove(char id[]) {
-//    1) use the hash function on the ID to get the index in the array
     unsigned int index = hashFunction(id);
-//    2) call the "remove" method on the linked list object at that location in the
-//    array
-    list[index].removeById(id);
+    arr[index].removeById(id);
+    length--;
 }
 
 const Person * HashTable::lookup(char id[]) {
-//    1) use the hash function on the ID to get the index in the array
     unsigned int index = hashFunction(id);
-//    2) call the "find" method on the linked list object at that location in the
-//    array
-    return list[index].searchById(id);
+    return arr[index].searchById(id);
 }
 
 unsigned int HashTable::hashFunction(const char* key) {
     unsigned int hash = 0;
+    unsigned int mod = tableSize;
 
     for (int i = 0; key[i]; i++) {
         hash += key[i];
     }
 
-    return hash % tableSize;
+    hash = hash % mod;
+    return hash;
+}
+
+void HashTable::dumpTable() {
+    arr->printList();
 }

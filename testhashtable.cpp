@@ -26,10 +26,10 @@ int main()
 	char famId[10];
 	Person* perPtr;
 
-	sprintf(id,"MC00%d",i);
-	sprintf(fname,"FName%d",i);
-	sprintf(lname,"LName%d",i);
-	sprintf(famId,"FamID%d",i);
+    snprintf(id, sizeof(id), "MC00%d", i);
+    snprintf(fname, sizeof(fname), "FName%d", i);
+    snprintf(lname, sizeof(lname), "LName%d", i);
+    snprintf(famId, sizeof(famId), "FamID%d", i);
 
 	if (firstTime)
 	{
@@ -62,7 +62,7 @@ int main()
 
     for (int i=0;i<NUMFAMILIES;i++)
     {
-	sprintf(idToCheck,"MC00%d",i);
+    snprintf(idToCheck, sizeof(idToCheck), "MC00%d", i);
 	ht.remove(idToCheck);
 	foundPerson = ht.lookup(idToCheck);
 	if (foundPerson != nullptr)

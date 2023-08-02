@@ -15,9 +15,9 @@ Person::Person(const char* id, const char* fname, const char* lname, const char*
     strcpy(this->familyId, familyId);
 };
 
-Person::~Person() {
-
-}
+//Person::~Person() {
+//
+//}
 
 char* Person::getId() {
     return id;
