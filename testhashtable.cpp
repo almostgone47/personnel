@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "hashtable.h"
+#include "HashTable.h"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ int main()
     const int HASHTABLESIZE = 13;
     const int NUMFAMILIES = 50;
 
-    Hashtable ht(HASHTABLESIZE);
+    HashTable ht(HASHTABLESIZE);
 
     char fakeId[] = "MCFAKE";
     char idToCheck[8];

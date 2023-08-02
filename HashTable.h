@@ -10,17 +10,20 @@
 //The array in the Hashtable class should be dynamically allocated. You should
 //allocate it to a size of 9973 entries.
 
-const int TABLE_SIZE = 9973;
-
 class HashTable {
 private:
-    LinkedList *table[TABLE_SIZE] = {nullptr};
+    int tableSize = 9973;
+    LinkedList *table;
     int hashFunction();
 public:
+    HashTable();
+    HashTable(int);
+
     bool isEmpty();
-    void insert();
-    void remove();
-    void lookup();
+    void insert(char *id, Person);
+    void remove(char []);
+    const Person * lookup(char []);
+    void dumpTable();
 };
 
 #endif //PERSONNEL_HASHTABLE_H
