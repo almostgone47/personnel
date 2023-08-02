@@ -5,7 +5,6 @@
 #include "LinkedList.h"
 
 void LinkedList::insertFront(Person person) {
-
 }
 
 void LinkedList::removeById(const char* personId) {

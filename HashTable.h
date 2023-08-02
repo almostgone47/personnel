@@ -13,11 +13,14 @@
 class HashTable {
 private:
     int tableSize = 9973;
-    LinkedList *table;
-    int hashFunction();
+    LinkedList *list;
+    int length = 0;
+    unsigned int hashFunction(const char*);
 public:
     HashTable();
     HashTable(int);
+    ~HashTable();
+    // TODO: need to finish destructor, copy and assignment operator
 
     bool isEmpty();
     void insert(char *id, Person);

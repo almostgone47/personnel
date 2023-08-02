@@ -10,6 +10,8 @@
 
 class PersonMgr {
 private:
+    PersonMgr() {}
+
     HashTable personnelTable;
 
 public:

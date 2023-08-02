@@ -21,6 +21,7 @@ private:
     int size = 0;
 
 public:
+    //TODO: (and constructors, destructors, assignment, operators,
     void insertFront(Person);
     void removeById(const char*);
     Person* searchById(const char*) const;
