@@ -1,13 +1,17 @@
 CC = g++
-CPPFLAGS = -std=c++23 -Wall -g
+CPPFLAGS = -std=c++20 -Wall -g
 
-personnel: personnel.o person.o personmgr.o
+personnel: personnel.o person.o personmgr.o LinkedList.o HashTable.o
 
 personnel.o: personnel.cpp
 
 person.o: person.cpp person.h
 
 personmgr.o: personmgr.cpp personmgr.h
+
+LinkedList.o: LinkedList.cpp LinkedList.h
+
+HashTable.o: HashTable.cpp HashTable.h
 
 clean:
 	rm *.o personnel

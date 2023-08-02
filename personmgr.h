@@ -10,11 +10,13 @@
 
 class PersonMgr {
 private:
-    HashTable table;
+    HashTable personnelTable;
+
 public:
     void addPerson(Person);
     void removePerson(char*);
     Person* findPerson(char*);
+
 };
 
 #endif //PERSONNEL_PERSONMGR_H
