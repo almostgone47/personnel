@@ -19,20 +19,20 @@ Person::~Person() {
 
 }
 
-char* getId() {
-
+char* Person::getId() {
+    return id;
 }
 
-char* getFname() {
-
+char* Person::getFname() {
+    return fname;
 }
 
-char* getLname() {
-
+char* Person::getLname() {
+    return lname;
 }
 
-char* getFamilyId() {
-
+char* Person::getFamilyId() {
+    return familyId;
 }
 
 void Person::print() const {

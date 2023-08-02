@@ -4,14 +4,14 @@
 
 #include "personmgr.h"
 
-void PersonMgr::addPerson(Person) {
-
+void PersonMgr::addPerson(Person person) {
+    personnelTable.insert(person.getId(), person);
 };
 
-void PersonMgr::removePerson(char*) {
-
+void PersonMgr::removePerson(char* id) {
+    personnelTable.remove(id);
 };
 
-Person* PersonMgr::findPerson(char*){
-
+Person* PersonMgr::findPerson(char* id){
+    personnelTable.lookup(id);
 };
