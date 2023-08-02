@@ -4,14 +4,18 @@
 
 #include "LinkedList.h"
 
-void LinkedList::add() {
+void LinkedList::insertFront(Person person) {
 
 }
 
-void LinkedList::remove() {
+void LinkedList::removeById(const char* personId) {
 
 }
 
-void LinkedList::find() {
+Person* LinkedList::searchById(const char*) const {
+
+}
+
+void LinkedList::printList() const {
 
 }
