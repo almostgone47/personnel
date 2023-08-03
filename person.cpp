@@ -36,5 +36,7 @@ char* Person::getFamilyId() {
 }
 
 void Person::print() const {
-    cout << id << ", " << fname << ", " << lname << ", " << familyId << endl;
+    cout << "ID: " << id << endl;
+    cout << "First Name: "<< fname << endl;
+    cout << "Last Name: " << lname <<  endl << endl;
 }

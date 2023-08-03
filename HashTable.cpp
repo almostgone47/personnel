@@ -82,5 +82,7 @@ unsigned int HashTable::hashFunction(const char* key) {
 }
 
 void HashTable::dumpTable() {
-    arr->printList();
+    for (int i = 0; i < tableSize; i++) {
+        arr[i].printList();
+    }
 }

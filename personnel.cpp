@@ -93,9 +93,12 @@ int main(int argc,char** argv)
 	    {
 		for (int i=0;i<NUM_LOOKUPS;i++)
 		{
+            if (i == 4) {
+                cout << "";
+            }
 		    const Person* perPtr = personMgr.findPerson(id);
 
-		    // If this is the first lookup for this person and we
+		    // If this is the first lookup for this person, and we
 		    // haven't printed NUM_PRINTS persons yet, then print
 		    // this person.
 		    if (perPtr != nullptr)
