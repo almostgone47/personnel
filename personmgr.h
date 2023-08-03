@@ -10,15 +10,15 @@
 
 class PersonMgr {
 private:
-
     HashTable table;
 
 public:
+    PersonMgr();
+    ~PersonMgr();
+
     void addPerson(Person);
     void removePerson(char*);
     const Person* findPerson(char*);
-
-    PersonMgr() {}
 };
 
 #endif //PERSONNEL_PERSONMGR_H

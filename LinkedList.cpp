@@ -68,16 +68,18 @@ void LinkedList::removeById(const char* id) {
     while(curr) {
         if (strcmp(id, curr->data.getId()) == 0) {
             if (prev == nullptr) {
-                head = nullptr;
+                head = curr->next;
             } else {
-                prev->next = nullptr;
+                prev->next = curr->next;
             }
-            break;
+
+            delete curr;
+            size--;
+            return;
         }
         prev = curr;
         curr = curr->next;
     }
-    size--;
 }
 
 Person* LinkedList::searchById(const char* id) const {

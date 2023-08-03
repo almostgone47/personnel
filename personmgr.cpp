@@ -4,6 +4,12 @@
 
 #include "personmgr.h"
 
+PersonMgr::PersonMgr() {
+}
+
+PersonMgr::~PersonMgr() {
+}
+
 void PersonMgr::addPerson(Person person) {
     table.insert(person.getId(), person);
 };
