@@ -19,9 +19,16 @@ Person::Person() {
 //output: none
 //return: none
 Person::Person(const char* id, const char* fname, const char* lname, const char* familyId)  {
+    this->id = new char[strlen(id) + 1];
     strcpy(this->id, id);
+
+    this->fname = new char[strlen(fname) + 1];
     strcpy(this->fname, fname);
+
+    this->lname = new char[strlen(lname) + 1];
     strcpy(this->lname, lname);
+
+    this->familyId = new char[strlen(familyId) + 1];
     strcpy(this->familyId, familyId);
 };
 
@@ -32,14 +39,10 @@ Person::Person(const char* id, const char* fname, const char* lname, const char*
 //output: none
 //return: none
 Person::~Person() {
-    delete id;
-    id = nullptr;
-    delete fname;
-    fname = nullptr;
-    delete lname;
-    lname = nullptr;
-    delete familyId;
-    familyId = nullptr;
+    delete[] id;
+    delete[] fname;
+    delete[] lname;
+    delete[] familyId;
 }
 
 //Name:   Person
@@ -48,10 +51,17 @@ Person::~Person() {
 //output: none
 //return: none
 Person::Person(const Person &person) {
-    id = person.id;
-    fname = person.fname;
-    lname = person.lname;
-    familyId = person.familyId;
+    this->id = new char[strlen(person.id) + 1];
+    strcpy(this->id, person.id);
+
+    this->fname = new char[strlen(person.fname) + 1];
+    strcpy(this->fname, person.fname);
+
+    this->lname = new char[strlen(person.lname) + 1];
+    strcpy(this->lname, person.lname);
+
+    this->familyId = new char[strlen(person.familyId) + 1];
+    strcpy(this->familyId, person.familyId);
 
     *this = person;
 };
@@ -66,10 +76,21 @@ const Person & Person::operator= (const Person &person) {
         return *this;
     }
     else {
-        this->id= person.id;
-        this->fname = person.fname;
-        this->lname = person.lname;
-        this->familyId = person.familyId;
+        delete[] this->id;
+        this->id = new char[strlen(person.id) + 1];
+        strcpy(this->id, person.id);
+
+        delete[] this->fname;
+        this->fname = new char[strlen(person.fname) + 1];
+        strcpy(this->fname, person.fname);
+
+        delete[] this->lname;
+        this->lname = new char[strlen(person.lname) + 1];
+        strcpy(this->lname, person.lname);
+
+        delete[] this->familyId;
+        this->familyId = new char[strlen(person.familyId) + 1];
+        strcpy(this->familyId, person.familyId);
 
         return *this;
     }
