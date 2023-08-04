@@ -94,7 +94,7 @@ const Person & Person::operator= (const Person &person) {
 
         return *this;
     }
-};
+}
 
 //Name:   getId
 //Desc:   Getter for the Person id.
