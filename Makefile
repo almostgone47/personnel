@@ -1,5 +1,5 @@
 CC = g++
-CPPFLAGS = -std=c++20 -Wall -g
+CPPFLAGS = -std=c++17 -Wall -g
 
 personnel: personnel.o person.o personmgr.o LinkedList.o HashTable.o
 

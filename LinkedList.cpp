@@ -42,6 +42,11 @@ LinkedList::LinkedList(const LinkedList &list) {
     *this = list;
 };
 
+//Name:   operator=
+//Desc:   Redefines = to perform deep copy.
+//input:  Reference to the linked list to copy from.
+//output: none
+//return: A reference to the linked list that used the method to copy.
 const LinkedList & LinkedList::operator= (const LinkedList &list) {
     if (this == &list) {
         return *this;
@@ -54,6 +59,11 @@ const LinkedList & LinkedList::operator= (const LinkedList &list) {
     }
 };
 
+//Name:   insertFront
+//Desc:   Adds a node to the front of the linked list.
+//input:  Person object to be inserted into the linked list.
+//output: none
+//return: none
 void LinkedList::insertFront(Person person) {
     Node *newNode = new Node();
     newNode->data = person;
@@ -62,6 +72,11 @@ void LinkedList::insertFront(Person person) {
     size++;
 }
 
+//Name:   removeById
+//Desc:   Removes the first node that matches the passed in Person id.
+//input:  A string representing the id of the person object to be removed.
+//output: none
+//return: none
 void LinkedList::removeById(const char* id) {
     Node *curr = head, *prev = nullptr;
 
@@ -82,6 +97,11 @@ void LinkedList::removeById(const char* id) {
     }
 }
 
+//Name:   searchById
+//Desc:   Searches for a matching Person id to the passed in id argument.
+//input:  A string representing the id of the person object to be returned.
+//output: none
+//return: A pointer to a person object searched ror.
 Person* LinkedList::searchById(const char* id) const {
     Node *curr = head;
     Person* person = nullptr;
@@ -97,6 +117,11 @@ Person* LinkedList::searchById(const char* id) const {
     return person;
 }
 
+//Name:   printList
+//Desc:   Loops through each node and calls the Person print method.
+//input:  none
+//output: The person object details.
+//return: none
 void LinkedList::printList() const {
     Node *curr = head;
 

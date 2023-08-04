@@ -48,6 +48,11 @@ HashTable::~HashTable() {
     delete [] arr;
 }
 
+//Name:   isEmpty
+//Desc:   Checks to see if hash table has any items in it.
+//input:  none
+//output: none
+//return: True or false if empty or not.
 bool HashTable::isEmpty() {
     return length == 0;
 }

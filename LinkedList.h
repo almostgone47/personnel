@@ -5,6 +5,8 @@
 #ifndef PERSONNEL_LINKEDLIST_H
 #define PERSONNEL_LINKEDLIST_H
 
+#include <cstring>
+
 //The LinkedList class only needs to
 //        support add, remove, and find (and constructors, destructors, assignment
 //operators, etc.)
