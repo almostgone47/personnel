@@ -9,24 +9,23 @@
 
 using namespace std;
 
-const int MAX_CHAR = 100;
-
 class Person {
 private:
-    char id[MAX_CHAR];
-    char fname[MAX_CHAR];
-    char lname[MAX_CHAR];
-    char familyId[MAX_CHAR];
+    char *id;
+    char *fname;
+    char *lname;
+    char *familyId;
 public:
     Person();
     Person(const char* id, const char* fname, const char* lname, const char* familyId);
-//    ~Person();
-    // still need copy constructor and operator=
+    ~Person();
+    Person(const Person &person);
+    const Person & operator= (const Person &person);
 
-    char* getId();
-    char* getFname();
-    char* getLname();
-    char* getFamilyId();
+    char* getId() const;
+    char* getFname() const;
+    char* getLname() const;
+    char* getFamilyId() const;
     void print() const;
 };
 #endif //PERSONNEL_PERSON_H
