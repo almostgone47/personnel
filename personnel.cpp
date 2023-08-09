@@ -10,7 +10,6 @@ using namespace std;
 
 int main(int argc,char** argv)
 {
-    auto lookupStart = std::chrono::high_resolution_clock::now();//remove this <--
     if (argc != 2) 
     {
 	cout << "Usage: " << argv[0] << " <datafile>" << endl;
@@ -116,10 +115,6 @@ int main(int argc,char** argv)
 	}
 	infile.close();
     }
-// remove all this
-    auto lookupEnd = std::chrono::high_resolution_clock::now();
-    auto lookupDuration = std::chrono::duration_cast<std::chrono::milliseconds>(lookupEnd - lookupStart).count();
-    std::cout << "Lookup time: " << lookupDuration << " milliseconds" << std::endl;
 
     return(0);
 }
