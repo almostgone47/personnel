@@ -51,17 +51,19 @@ Person::~Person() {
 //output: none
 //return: none
 Person::Person(const Person &person) {
-    this->id = new char[strlen(person.id) + 1];
-    strcpy(this->id, person.id);
+    if (this != &person) {
+        this->id = new char[strlen(person.id) + 1];
+        strcpy(this->id, person.id);
 
-    this->fname = new char[strlen(person.fname) + 1];
-    strcpy(this->fname, person.fname);
+        this->fname = new char[strlen(person.fname) + 1];
+        strcpy(this->fname, person.fname);
 
-    this->lname = new char[strlen(person.lname) + 1];
-    strcpy(this->lname, person.lname);
+        this->lname = new char[strlen(person.lname) + 1];
+        strcpy(this->lname, person.lname);
 
-    this->familyId = new char[strlen(person.familyId) + 1];
-    strcpy(this->familyId, person.familyId);
+        this->familyId = new char[strlen(person.familyId) + 1];
+        strcpy(this->familyId, person.familyId);
+    }
 
     *this = person;
 };
@@ -72,10 +74,7 @@ Person::Person(const Person &person) {
 //output: none
 //return: A reference to the linked list that used the method to copy.
 const Person & Person::operator= (const Person &person) {
-    if (this == &person) {
-        return *this;
-    }
-    else {
+    if (this != &person) {
         delete[] this->id;
         this->id = new char[strlen(person.id) + 1];
         strcpy(this->id, person.id);
@@ -91,9 +90,9 @@ const Person & Person::operator= (const Person &person) {
         delete[] this->familyId;
         this->familyId = new char[strlen(person.familyId) + 1];
         strcpy(this->familyId, person.familyId);
-
-        return *this;
     }
+
+    return *this;
 }
 
 //Name:   getId
@@ -110,7 +109,7 @@ char* Person::getId() const {
 //input:  none
 //output: none
 //return: A pointer to a string representing the person first name.
-char* Person::getFname() const {
+const char* Person::getFname() const {
     return fname;
 }
 
@@ -119,7 +118,7 @@ char* Person::getFname() const {
 //input:  none
 //output: none
 //return: A pointer to a string representing the person last name.
-char* Person::getLname() const {
+const char* Person::getLname() const {
     return lname;
 }
 
@@ -128,7 +127,7 @@ char* Person::getLname() const {
 //input:  none
 //output: none
 //return: A pointer to a string representing the person family id.
-char* Person::getFamilyId() const {
+const char* Person::getFamilyId() const {
     return familyId;
 }
 

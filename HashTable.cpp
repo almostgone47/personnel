@@ -36,12 +36,11 @@ HashTable::HashTable(int hashTableSize) {
 //output: none
 //return: none
 HashTable::HashTable(const HashTable& table) {
-    tableSize = table.tableSize;
     arr = new LinkedList[tableSize];
+
     for (int i = 0; i < tableSize; i++) {
         arr[i] = table.arr[i];
     }
-    length = table.length;
 }
 
 //Name:   operator=
@@ -50,17 +49,17 @@ HashTable::HashTable(const HashTable& table) {
 //output: none
 //return: A reference to the linked list that used the method to copy.
 const HashTable& HashTable::operator=(const HashTable& table) {
-    if (this == &table) {
-        return *this;
-    }
-    delete[] arr;
-    tableSize = table.tableSize;
-    arr = new LinkedList[tableSize];
-    for (int i = 0; i < tableSize; i++) {
-        arr[i] = table.arr[i];
+    if (this != &table) {
+        delete[] arr;
+
+        tableSize = table.tableSize;
+        length = table.length;
+        arr = new LinkedList[tableSize];
+        for (int i = 0; i < tableSize; i++) {
+            arr[i] = table.arr[i];
+        }
     }
 
-    length = table.length;
     return *this;
 }
 
@@ -70,6 +69,9 @@ const HashTable& HashTable::operator=(const HashTable& table) {
 //output: none
 //return: none
 HashTable::~HashTable() {
+    for (int i = 0; i < tableSize; i++) {
+        arr[i].~LinkedList();
+    }
     delete [] arr;
 }
 
@@ -120,21 +122,20 @@ const Person * HashTable::lookup(char id[]) {
 //output: none
 //return: A hash that is no larger than the tableSize.
 unsigned int HashTable::hashFunction(const char* key) {
-    unsigned int hash = 0;
-    unsigned int mod = tableSize;
+    unsigned int hash = tableSize;
+    unsigned int prime = 13;
 
     for (int i = 0; key[i]; i++) {
-        hash += key[i];
+        hash = (hash * prime) + key[i];
     }
 
-    hash = hash % mod;
-    return hash;
+    return hash % tableSize;
 }
 
 //Name:   dumpTable
 //Desc:   Loops through the hash table array and prints every item in the hash table.
 //input:  none
-//output: The details for each of the Person objects in the hash table.
+//output: none, but calls the linked list method to create the output of he data held in each bucket.
 //return: none
 void HashTable::dumpTable() {
     for (int i = 0; i < tableSize; i++) {

@@ -16,7 +16,7 @@ public:
     PersonMgr();
     ~PersonMgr();
 
-    void addPerson(Person);
+    void addPerson(const Person);
     void removePerson(char*);
     const Person* findPerson(char*);
 };

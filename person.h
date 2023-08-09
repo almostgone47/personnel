@@ -15,6 +15,7 @@ private:
     char *fname;
     char *lname;
     char *familyId;
+
 public:
     Person();
     Person(const char* id, const char* fname, const char* lname, const char* familyId);
@@ -23,9 +24,11 @@ public:
     const Person & operator= (const Person &person);
 
     char* getId() const;
-    char* getFname() const;
-    char* getLname() const;
-    char* getFamilyId() const;
+    const char* getFname() const;
+    const char* getLname() const;
+    const char* getFamilyId() const;
     void print() const;
+
 };
+
 #endif //PERSONNEL_PERSON_H

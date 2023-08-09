@@ -33,6 +33,7 @@ public:
     void removeById(const char*);
     Person* searchById(const char*) const;
     void printList() const;
+
 };
 
 #endif //PERSONNEL_LINKEDLIST_H

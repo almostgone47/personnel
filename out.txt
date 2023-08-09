@@ -46,3 +46,4 @@ ID: MC0078NF982DSR3W2
 First Name: Bryson
 Last Name: Olvera
 
+Lookup time: 8329 milliseconds

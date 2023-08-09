@@ -26,7 +26,7 @@ PersonMgr::~PersonMgr() {
 //input:  A Person object.
 //output: none
 //return: none
-void PersonMgr::addPerson(Person person) {
+void PersonMgr::addPerson(const Person person) {
     table.insert(person.getId(), person);
 };
 

@@ -36,8 +36,27 @@ LinkedList::~LinkedList() {
 //output: none
 //return: none
 LinkedList::LinkedList(const LinkedList &list) {
-    head = list.head;
-    size = list.size;
+    if (this != &list) {
+        head = nullptr;
+        size = list.size;
+
+        Node *curr = list.head;
+        Node *prev = nullptr;
+
+        while (curr) {
+            Node *newNode = new Node();
+            newNode->data = curr->data;
+
+            if (prev == nullptr) {
+                head = newNode;
+            } else {
+                prev->next = newNode;
+            }
+
+            prev = newNode;
+            curr = curr->next;
+        }
+    }
 
     *this = list;
 };
@@ -48,15 +67,33 @@ LinkedList::LinkedList(const LinkedList &list) {
 //output: none
 //return: A reference to the linked list that used the method to copy.
 const LinkedList & LinkedList::operator= (const LinkedList &list) {
-    if (this == &list) {
-        return *this;
-    }
-    else {
-        this->head= list.head;
-        this->size = list.size;
+    if (this != &list) {
+        while (head != nullptr) {
+            Node *temp = head;
+            head = head->next;
+            delete temp;
+        }
+        size = 0;
 
-        return *this;
+        Node *curr = list.head;
+        Node *prev = nullptr;
+
+        while (curr) {
+            Node *newNode = new Node();
+            newNode->data = curr->data;
+
+            if (prev == nullptr) {
+                head = newNode;
+            } else {
+                prev->next = newNode;
+            }
+
+            prev = newNode;
+            curr = curr->next;
+        }
     }
+
+    return *this;
 };
 
 //Name:   insertFront
