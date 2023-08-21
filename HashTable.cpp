@@ -36,6 +36,7 @@ HashTable::HashTable(int hashTableSize) {
 //output: none
 //return: none
 HashTable::HashTable(const HashTable& table) {
+    tableSize = table.tableSize;
     arr = new LinkedList[tableSize];
 
     for (int i = 0; i < tableSize; i++) {
@@ -69,9 +70,6 @@ const HashTable& HashTable::operator=(const HashTable& table) {
 //output: none
 //return: none
 HashTable::~HashTable() {
-    for (int i = 0; i < tableSize; i++) {
-        arr[i].~LinkedList();
-    }
     delete [] arr;
 }
 

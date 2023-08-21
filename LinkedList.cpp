@@ -14,7 +14,7 @@ LinkedList::LinkedList() {
     size = 0;
 }
 
-//Name:   ~LinkedList()
+//Name:   ~LinkedList
 //Desc:   Destructor for LinkedList class. The delete keyword deallocates memory and the pointers are
 //        set to null so as not to leave dangling pointers.
 //input:  none.
@@ -30,35 +30,31 @@ LinkedList::~LinkedList() {
     size = 0;
 };
 
-//Name:   LinkedList()
+//Name:   LinkedList
 //Desc:   Copy constructor for LinkedList class.
 //input:  none.
 //output: none
 //return: none
 LinkedList::LinkedList(const LinkedList &list) {
-    if (this != &list) {
-        head = nullptr;
-        size = list.size;
+    head = nullptr;
+    size = list.size;
 
-        Node *curr = list.head;
-        Node *prev = nullptr;
+    Node *curr = list.head;
+    Node *prev = nullptr;
 
-        while (curr) {
-            Node *newNode = new Node();
-            newNode->data = curr->data;
+    while (curr) {
+        Node *newNode = new Node();
+        newNode->data = curr->data;
 
-            if (prev == nullptr) {
-                head = newNode;
-            } else {
-                prev->next = newNode;
-            }
-
-            prev = newNode;
-            curr = curr->next;
+        if (prev == nullptr) {
+            head = newNode;
+        } else {
+            prev->next = newNode;
         }
-    }
 
-    *this = list;
+        prev = newNode;
+        curr = curr->next;
+    }
 };
 
 //Name:   operator=

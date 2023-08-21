@@ -51,19 +51,17 @@ Person::~Person() {
 //output: none
 //return: none
 Person::Person(const Person &person) {
-    if (this != &person) {
-        this->id = new char[strlen(person.id) + 1];
-        strcpy(this->id, person.id);
+    this->id = new char[strlen(person.id) + 1];
+    strcpy(this->id, person.id);
 
-        this->fname = new char[strlen(person.fname) + 1];
-        strcpy(this->fname, person.fname);
+    this->fname = new char[strlen(person.fname) + 1];
+    strcpy(this->fname, person.fname);
 
-        this->lname = new char[strlen(person.lname) + 1];
-        strcpy(this->lname, person.lname);
+    this->lname = new char[strlen(person.lname) + 1];
+    strcpy(this->lname, person.lname);
 
-        this->familyId = new char[strlen(person.familyId) + 1];
-        strcpy(this->familyId, person.familyId);
-    }
+    this->familyId = new char[strlen(person.familyId) + 1];
+    strcpy(this->familyId, person.familyId);
 
     *this = person;
 };
